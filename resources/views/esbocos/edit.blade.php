@@ -48,53 +48,53 @@
                         <form action="{{ route('esbocos.update', $esboco->id) }}" method="POST" role="form">
                             @csrf
                             @method('PUT')
-                            <div class="input-group input-group-outline">
-                                <input type="text" class="form-control" name="titulo" value="{{ $esboco->titulo }}">
+
+                            <div class="col-12">
+                                <label class="form-label my-0" for="titulo">Título do esboço</label>
+                                <input type="text" class="form-control border border-info px-2" id="titulo"
+                                    name="titulo" value="{{ $esboco->titulo }}">
                             </div>
 
                             <div class="row my-3">
                                 <div class="col-4">
-                                    <div class="input-group input-group-outline">
-                                        <label for="livro" class="form-label"></label>
-                                        <select class="form-control" name="livro_id" id="livro">
-                                            @foreach ($livros as $livro)
-                                                <option value="{{ $livro->id }}"
-                                                    @if ($esboco->livro_id == $livro->id) selected @endif>
-                                                    {{ $livro->livro }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                    <label for="livro" class="form-label my-0">Livro</label>
+                                    <select class="form-control border border-info px-2" name="livro_id" id="livro">
+                                        @foreach ($livros as $livro)
+                                            <option value="{{ $livro->id }}"
+                                                @if ($esboco->livro_id == $livro->id) selected @endif>
+                                                {{ $livro->livro }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="col-4">
-                                    <div class="input-group input-group-outline">
-                                        <label class="form-label">Capítulo</label>
-                                        <input type="number" class="form-control" name="capitulo"
-                                            value="{{ $esboco->capitulo }}">
-                                    </div>
+                                    <label class="form-label my-0">Capítulo</label>
+                                    <input type="number" class="form-control border border-info px-2" name="capitulo"
+                                        value="{{ $esboco->capitulo }}">
                                 </div>
                                 <div class="col-4">
-                                    <div class="input-group input-group-outline">
-                                        <label class="form-label">Versículo</label>
-                                        <input type="text" class="form-control" name="versiculo"
-                                            value="{{ $esboco->versiculo }}">
-                                    </div>
+                                    <label class="form-label my-0" for="versiculo">Versículo</label>
+                                    <input type="text" class="form-control border border-info px-2" name="versiculo"
+                                        value="{{ $esboco->versiculo }}">
                                 </div>
                             </div>
 
-                            <div class="input-group input-group-outline my-3 mb-4">
-                                <label for="exampleFormControlSelect1" class="form-label"></label>
-                                <select class="form-control" name="categoria_id" id="exampleFormControlSelect1">
+                            {{-- <div class="col-12">
+                                <label for="categoria" class="form-label my-0">Categoria</label>
+                                <select class="form-control border border-info px-2" name="categoria_id" id="categoria">
                                     @foreach ($categorias as $categoria)
                                         <option value="{{ $categoria->id }}"
                                             @if ($esboco->categoria_id == $categoria->id) selected @endif> {{ $categoria->categoria }}
                                         </option>
                                     @endforeach
                                 </select>
+                            </div> --}}
+
+                            <div class="col-12 my-3">
+                                <label for="trumbowyg" class="form-label my-0">Mensagem do esboço</label>
+                                <textarea class="form-control border border-info px-2" name="texto" id="trumbowyg" rows="5" placeholder="Escreva aqui seu esboço...">{{ $esboco->texto }}</textarea>
                             </div>
-                            <div class="input-group input-group-outline my-3">
-                                <textarea class="form-control" name="texto" id="trumbowyg" rows="5" placeholder="Escreva aqui seu esboço...">{{ $esboco->texto }}</textarea>
-                            </div>
+
                             <div class="text-center">
                                 <button type="submit" class="btn bg-gradient-info my-4 mb-2">
                                     <i class="fa fa-refresh" aria-hidden="true"></i>

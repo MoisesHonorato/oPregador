@@ -51,9 +51,9 @@
                             @csrf
                             @method('PUT')
 
-                            <div class="input-group input-group-outline mb-4">
-                                <label for="exampleFormControlSelect1" class="form-label"></label>
-                                <select class="form-control" name="esboco_id" id="exampleFormControlSelect1">
+                            <div class="col-12 mb-4">
+                                <label for="esboco" class="form-label my-0">Esboço <small class="text-info">escolha um esboço clicando no campo abaixo</small></label>
+                                <select class="form-control border border-info px-2" name="esboco_id" id="esboco">
                                     @foreach ($esbocos as $esboco)
                                         <option value="{{ $esboco->id }}"
                                             {{ $sermon->esboco_id == $esboco->id ? 'selected' : '' }}>
@@ -63,25 +63,26 @@
                                 </select>
                             </div>
 
-                            <div class="row">
+                            <div class="row mt-3">
                                 <div class="col-9">
-                                    <div class="input-group input-group-outline">
-                                        <label class="form-label"></label>
-                                        <input type="text" class="form-control" name="local_sermon"
-                                            value="{{ $sermon->local_sermon }}">
-                                    </div>
+                                    <label class="form-label my-0" for="local_sermon">Local da pregação</label>
+                                    <input type="text" class="form-control border border-info px-2" id="local_sermon" name="local_sermon"
+                                        value="{{ $sermon->local_sermon }}">
                                 </div>
                                 <div class="col-3">
-                                    <div class="input-group input-group-outline">
-                                        <input type="date" class="form-control" name="data_sermon"
-                                            value="{{ $sermon->data_sermon }}">
-                                    </div>
+                                    <label class="form-label my-0" for="data_sermon">Data da pregação</label>
+                                    <input type="date" class="form-control border border-info px-2" id="data_sermon" name="data_sermon"
+                                        value="{{ $sermon->data_sermon }}">
                                 </div>
                             </div>
 
-                            <div class="input-group input-group-outline my-3">
-                                <textarea class="form-control" name="observacao" id="" rows="5" value="">{{ $sermon->observacao }}</textarea>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <label class="form-label my-0" for="observacao">Observação</label>
+                                    <textarea class="form-control border border-info px-2" id="observacao" name="observacao" id="" rows="5">{{ $sermon->observacao }}</textarea>
+                                </div>
                             </div>
+
                             <div class="text-center">
                                 <button type="submit" class="btn bg-gradient-info shadow-secondary my-4 mb-2">
                                     <i class="fa fa-refresh" aria-hidden="true"></i>

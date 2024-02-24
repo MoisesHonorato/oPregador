@@ -77,24 +77,25 @@
                                                 <strong class="">Assunto:</strong>
                                                 <em class="">{{ $suggestion->title }}</em>
                                                 <small class="text-xs">-
-                                                    {{ date('d/m/Y', strtotime($suggestion->created_at)) }}
+                                                    Criado em {{ date('d/m/Y', strtotime($suggestion->created_at)) }}
                                                 </small>
                                             </p>
                                             <span class="mb-2 text-xs">Sugestão: <span
                                                     class="text-dark font-weight-bold ms-sm-2">{{ $suggestion->subject }}</span>
                                             </span>
                                         </div>
-                                        {{--  <div class="ms-auto text-end">
-                                            <a class="btn btn-link text-dark px-3 mb-0"
+                                         <div class="ms-auto text-end">
+
+                                            <a class="btn bg-gradient-dark"
                                                 href="{{ route('suggestions.edit', $suggestion->id) }}">
-                                                <i class="fa-regular fa-pen-to-square"></i>Editar
-                                            </a> 
-                                            
-                                            <a class="btn btn-link text-primary text-gradient px-3 mb-0"
+                                                <i class="fa-regular fa-pen-to-square"></i> Editar
+                                            </a>
+
+                                            {{-- <a class="btn btn-link text-primary text-gradient px-3 mb-0"
                                                 href="{{ route('suggestions.show', $suggestion->id) }}">
                                                 <i class="fa fa-eye" aria-hidden="true"></i> Ver
-                                            </a>
-                                        </div> --}}
+                                            </a> --}}
+                                        </div>
                                     </li>
                                 @endforeach
                             </ul>

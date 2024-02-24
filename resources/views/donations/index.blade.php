@@ -42,7 +42,7 @@
 
     <div class="donate-container">
         <div class="display-4 text-secondary mb-2">Contribua com nosso projeto</div>
-        
+
         <blockquote class="blockquote text-primary opacity-8 text-justify">
             <p class="ps-2">"Cada um contribua segundo tiver proposto no coração, não com tristeza ou por
                 necessidade; porque Deus ama a quem dá com alegria."</p>
@@ -63,7 +63,7 @@
             <strong>Conta Corrente:</strong> 20717453-1<br>
             <strong>Titular:</strong> Moisés Honorato Amorim
         </p>
-        <p>Você também pode fazer uma doação via Pix, utilizando a chave: <strong>69 9 9237 4151</strong></p>
+        <p>Você também pode fazer uma doação via Pix, utilizando a chave: <strong>90720890225</strong></p>
         <img width="300px" src="{{ asset('assets/img/pix.jpeg') }}">
     </div>
 

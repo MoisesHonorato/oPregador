@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('title', 'Criar sugestão :: O Pregador')
+@section('title', 'Atualizar sugestão :: O Pregador')
 
 @section('conteudo')
 
@@ -15,35 +15,34 @@
             <div class="card my-4">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                     <div class="bg-gradient-dark shadow-secondary border-radius-lg pt-4 pb-3">
-                        <h6 class="text-white text-capitalize ps-3">Criando Sugestão</h6>
+                        <h6 class="text-white text-capitalize ps-3">Atualizando Sugestão</h6>
                     </div>
                 </div>
 
                 <div class="card-header mx-3">
                     <div class="card-body px-0 pb-2">
 
-                        <form action="{{ route('suggestions.store') }}" method="POST" role="form"
-                            enctype="multipart/form-data" onsubmit="return validarFormulario()">
+                        <form id="myForm" action="{{ route('suggestions.update', $suggestion->id) }}" method="POST"
+                            role="form" enctype="multipart/form-data" onsubmit="return validarFormulario()">
                             @csrf
+                            @method('PUT')
 
                             <div class="col-12">
                                 <label class="form-label my-0" for="title">Assunto</label>
                                 <input type="text" class="form-control border border-info px-2" name="title"
-                                    id="title" value="{{ old('title') }}" placeholder="Assunto">
+                                    id="title" value="{{ $suggestion->title }}">
                             </div>
 
                             <div class="col-12 mt-3">
                                 <label class="form-label my-0" for="subject">Sugestão</label>
-                                <textarea class="form-control border border-info px-2" name="subject" id="subject" rows="5"
-                                    placeholder="Escreva aqui sua sugestão..."></textarea>
+                                <textarea class="form-control border border-info px-2" name="subject" id="subject" rows="5">{{ $suggestion->subject }}</textarea>
                             </div>
 
                             <div class="text-center">
                                 <button type="submit" class="btn bg-gradient-info my-4 mb-2">
-                                    <i class="fa fa-plus" aria-hidden="true"></i>
-                                    Sugerir</button>
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                    Atualizar</button>
                             </div>
-
                         </form>
                     </div>
                 </div>

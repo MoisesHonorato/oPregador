@@ -59,12 +59,32 @@ class SuggestionController extends Controller
 
     public function edit(string $id)
     {
-        //
+        $user = Auth::user();
+        $suggestion = Suggestion::find($id);
+
+        // Valida se o usuário logado realmente pode editar a sugestão
+        if ($suggestion->user_id != $user->id) :
+            return redirect()->route('suggestions.index');
+        endif;
+
+        return view('suggestions.edit', compact('suggestion'));
     }
 
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'subject' => 'required',
+        ]);
+
+        $suggestion = Suggestion::find($id);
+
+        $suggestion->title = $request->title;
+        $suggestion->subject = $request->subject;
+
+        $suggestion->save();
+
+        return redirect()->route('suggestions.index')->with('success', 'Sua sugestão foi alterada com sucesso!');
     }
 
     public function destroy(string $id)
