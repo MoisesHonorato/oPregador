@@ -51,8 +51,8 @@
                                     name="titulo" value="{{ old('titulo') }}">
                             </div>
 
-                            <div class="row my-3">
-                                <div class="col-4">
+                            <div class="row">
+                                <div class="col-12 col-md-4 mt-3">
                                     <label for="livro" class="form-label my-0">Livro</label>
                                     <select class="form-control border border-info px-2" name="livro_id" id="livro">
                                         @foreach ($livros as $livro)
@@ -60,12 +60,12 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-6 col-md-4 mt-3">
                                     <label class="form-label my-0">Capítulo</label>
                                     <input type="number" class="form-control border border-info px-2" name="capitulo"
                                         value="{{ old('capitulo') }}">
                                 </div>
-                                <div class="col-4">
+                                <div class="col-6 col-md-4 mt-3">
                                     <label class="form-label my-0" for="versiculo">Versículo</label>
                                     <input type="text" class="form-control border border-info px-2" name="versiculo"
                                         value="{{ old('versiculo') }}">

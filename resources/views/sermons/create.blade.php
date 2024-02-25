@@ -22,7 +22,7 @@
                 <div class="card-header mx-3">
                     <div class="card-body px-0 pb-2">
 
-                        @error('titulo')
+                        @error('local_sermon')
                             <div class="alert alert-danger alert-dismissible text-white" role="alert">
                                 <span class="text-sm">{{ $message }}</span>
                                 <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert"
@@ -46,7 +46,7 @@
                             enctype="multipart/form-data">
                             @csrf
 
-                            <div class="col-12 mb-4">
+                            <div class="col-12">
                                 <label for="esboco" class="form-label my-0">Esboço <small class="text-info">escolha um esboço clicando no campo abaixo</small></label>
                                 <select class="form-control border border-info px-2" name="esboco_id" id="esboco">
                                     @foreach ($esbocos as $esboco)
@@ -55,13 +55,13 @@
                                 </select>
                             </div>
 
-                            <div class="row mt-3">
-                                <div class="col-9">
+                            <div class="row">
+                                <div class="col-12 col-md-9 mt-3">
                                     <label class="form-label my-0" for="local_sermon">Local da pregação</label>
                                     <input type="text" class="form-control border border-info px-2" id="local_sermon" name="local_sermon"
                                         value="{{ old('local_sermon') }}" placeholder="Ex.: Igreja Jerusalém">
                                 </div>
-                                <div class="col-3">
+                                <div class="col-12 col-md-3 mt-3">
                                     <label class="form-label my-0" for="data_sermon">Data da pregação</label>
                                     <input type="date" class="form-control border border-info px-2" id="data_sermon" name="data_sermon"
                                         value="{{ old('data_sermon') }}">

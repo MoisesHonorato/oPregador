@@ -112,13 +112,37 @@
     </script>
 
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'G-FBEPFBWJZ9');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FBEPFBWJZ9');
     </script>
 
+    <script>
+        function imprimirParteDaPagina() {
+            // Obtém o conteúdo que deseja imprimir
+            var conteudoParaImprimir = document.getElementById('conteudoParaImprimir').innerHTML;
+
+            // Crie uma nova janela temporária
+            var janelaImprimir = window.open('', '', 'height=600,width=800');
+
+            // Crie o conteúdo HTML na nova janela
+            var conteudoHTML = `
+    ${conteudoParaImprimir}
+`;
+
+            // Escreva o conteúdo na nova janela
+            janelaImprimir.document.write(conteudoHTML);
+            janelaImprimir.document.close();
+
+            // Chame a função de impressão na nova janela
+            janelaImprimir.print();
+        }
+    </script>
 </body>
 
 </html>
