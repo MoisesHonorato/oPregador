@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 
-Route::get('/', function(){
+Route::get('/login', function(){
     return view('auth/login');
     });
 
-Route::resource('dashboard', DashboardController::class)->middleware('auth');
+Route::resource('/', DashboardController::class)->middleware('auth');
 Route::resource('donations', DonationController::class)->middleware('auth');
 Route::resource('esbocos', EsbocoController::class)->middleware('auth');
 Route::resource('profiles', ProfileController::class)->middleware('auth');
