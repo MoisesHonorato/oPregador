@@ -21,7 +21,8 @@
                     </div>
                     <hr class="dark horizontal my-0">
                     <div class="card-footer p-3">
-                        <p class="mb-0"><span class="text-success text-sm font-weight-bolder">{{$porcEsbocos}}% </span>de todos
+                        <p class="mb-0"><span class="text-success text-sm font-weight-bolder">{{ $porcEsbocos }}% </span>de
+                            todos
                             os esboços</p>
                     </div>
                 </div>
@@ -40,7 +41,8 @@
                     </div>
                     <hr class="dark horizontal my-0">
                     <div class="card-footer p-3">
-                        <p class="mb-0"><span class="text-success text-sm font-weight-bolder">{{$porcSermons}}% </span>em relação aos
+                        <p class="mb-0"><span class="text-success text-sm font-weight-bolder">{{ $porcSermons }}% </span>em
+                            relação aos
                             esboços</p>
                     </div>
                 </div>
@@ -54,7 +56,7 @@
                         </div>
                         <div class="text-end pt-1">
                             <p class="text-sm mb-0 text-capitalize">Sugestões</p>
-                            <h4 class="mb-0">{{$contSuggestions}}</h4>
+                            <h4 class="mb-0">{{ $contSuggestions }}</h4>
                         </div>
                     </div>
                     <hr class="dark horizontal my-0">
@@ -73,12 +75,14 @@
                         </div>
                         <div class="text-end pt-1">
                             <p class="text-sm mb-0 text-capitalize">Esboços sem pregação</p>
-                            <h4 class="mb-0">{{$contEsbocosNaoPregados}}</h4>
+                            <h4 class="mb-0">{{ $contEsbocosNaoPregados }}</h4>
                         </div>
                     </div>
                     <hr class="dark horizontal my-0">
                     <div class="card-footer p-3">
-                        <p class="mb-0"><span class="text-success text-sm font-weight-bolder">{{$porcEsbocosNaoPregados}}%</span> em relação aos
+                        <p class="mb-0"><span
+                                class="text-success text-sm font-weight-bolder">{{ $porcEsbocosNaoPregados }}%</span> em relação
+                            aos
                             esboços</p>
                     </div>
                 </div>
@@ -92,12 +96,12 @@
                         </div>
                         <div class="text-end pt-1">
                             <p class="text-sm mb-0 text-capitalize">Esboços Pregados mais de uma vez</p>
-                            <h4 class="mb-0">3</h4>
+                            <h4 class="mb-0">{{ $esbocoRepetidos }}</h4>
                         </div>
                     </div>
                     <hr class="dark horizontal my-0">
                     <div class="card-footer p-3">
-                        <p class="mb-0"><span class="text-success text-sm font-weight-bolder">5% </span>em relação aos esboços
+                        <p class="mb-0"><span class="text-success text-sm font-weight-bolder">{{$porcEsbocoRepetidos}}% </span>em relação as pregações
                         </p>
                     </div>
                 </div>

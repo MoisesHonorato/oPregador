@@ -31,24 +31,29 @@ class DashboardController extends Controller
                     ->whereRaw('sermons.esboco_id = esbocos.id');
             })
             ->count();
+        $esbocoRepetidos = DB::table('sermons')
+            ->select('esboco_id', DB::raw('COUNT(*) as total'))
+            ->where('usuario_id', 2)
+            ->groupBy('esboco_id')
+            ->havingRaw('COUNT(*) > 1')->count();
         $porcEsbocos        = number_format(($contEsbocos / $esbocos) * 100, 2, ',', '.');
         $porcSermons        = number_format(($contSermons / $sermons) * 100, 2, ',', '.');
-        $porcEsbocosNaoPregados        = number_format(($contEsbocosNaoPregados / $esbocos) * 100, 2, ',', '.');
+        $porcEsbocosNaoPregados = number_format(($contEsbocosNaoPregados / $esbocos) * 100, 2, ',', '.');
+        $porcEsbocoRepetidos        = number_format(($esbocoRepetidos / $contSermons) * 100, 2, ',', '.');
 
         return view('dashboard/index', compact(
             'contEsbocos',
             'contSermons',
             'contSuggestions',
             'contEsbocosNaoPregados',
+            'esbocoRepetidos',
             'porcEsbocos',
             'porcSermons',
             'porcEsbocosNaoPregados',
+            'porcEsbocoRepetidos',
         ));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
