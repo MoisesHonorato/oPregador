@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Donation;
 use App\Models\Esboco;
 use App\Models\Sermon;
 use App\Models\Suggestion;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
@@ -21,6 +19,11 @@ class DashboardController extends Controller
 
         $admin = false;
         $pregador = false;
+        $contUsuarios               = 0;
+        $contUsuariosSemEsbocos     = 0;
+        $contUsuariosSemPregacao    = 0;
+        $porcUsuariosSemEsbocos     = 0;
+        $porcUsuariosSemPregacao    = 0;
 
         // Iterar sobre os níveis de acesso
         foreach ($accessLevels as $accessLevel) {
@@ -40,6 +43,8 @@ class DashboardController extends Controller
         $sermons    = Sermon::all()->count();
 
         if ($admin) :
+
+            $contUsuarios       = User::all()->count(); // Contar os usuarios
             $contEsbocos        = Esboco::all()->count(); // Contar os esboços
             $contSermons        = Sermon::all()->count(); // Contar os sermons
             $contSuggestions    = Suggestion::all()->count(); // Contar os sugestões
@@ -50,14 +55,32 @@ class DashboardController extends Controller
                         ->whereRaw('sermons.esboco_id = esbocos.id');
                 })
                 ->count();
+            $contUsuariosSemEsbocos = DB::table('users')
+                ->whereNotExists(function ($query) {
+                    $query->select(DB::raw(1))
+                        ->from('esbocos')
+                        ->whereRaw('esbocos.usuario_id = users.id');
+                })
+                ->count();
+            $contUsuariosSemPregacao = DB::table('users')
+                ->whereNotExists(function ($query) {
+                    $query->select(DB::raw(1))
+                        ->from('sermons')
+                        ->whereRaw('sermons.usuario_id = users.id');
+                })
+                ->count();
             $esbocoRepetidos = DB::table('sermons')
                 ->select('esboco_id', DB::raw('COUNT(*) as total'))
                 ->groupBy('esboco_id')
                 ->havingRaw('COUNT(*) > 1')->count();
+
             $porcEsbocos        = number_format(($contEsbocos / $esbocos) * 100, 2, ',', '.');
             $porcSermons        = number_format(($contSermons / $sermons) * 100, 2, ',', '.');
             $porcEsbocosNaoPregados = number_format(($contEsbocosNaoPregados / $esbocos) * 100, 2, ',', '.');
+            $porcUsuariosSemEsbocos = number_format(($contUsuariosSemEsbocos / $contUsuarios) * 100, 2, ',', '.');
+            $porcUsuariosSemPregacao = number_format(($contUsuariosSemPregacao / $contUsuarios) * 100, 2, ',', '.');
             $porcEsbocoRepetidos        = number_format(($esbocoRepetidos / $contSermons) * 100, 2, ',', '.');
+
         endif;
 
         if ($pregador) :
@@ -84,6 +107,10 @@ class DashboardController extends Controller
         endif;
 
         return view('dashboard/index', compact(
+            'admin',
+            'contUsuarios',
+            'contUsuariosSemEsbocos',
+            'contUsuariosSemPregacao',
             'contEsbocos',
             'contSermons',
             'contSuggestions',
@@ -93,6 +120,8 @@ class DashboardController extends Controller
             'porcSermons',
             'porcEsbocosNaoPregados',
             'porcEsbocoRepetidos',
+            'porcUsuariosSemEsbocos',
+            'porcUsuariosSemPregacao',
         ));
     }
 }

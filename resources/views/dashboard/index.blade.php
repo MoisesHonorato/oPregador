@@ -61,8 +61,8 @@
                     </div>
                     <hr class="dark horizontal my-0">
                     <div class="card-footer p-3">
-                        <p class="mb-0"><span class="text-success text-sm font-weight-bolder">3% </span>em relação aos
-                            esboços</p>
+                        <p class="mb-0"><span class="text-success text-sm font-weight-bolder"></span>Quantidade em todo o
+                            sistema</p>
                     </div>
                 </div>
             </div>
@@ -101,13 +101,78 @@
                     </div>
                     <hr class="dark horizontal my-0">
                     <div class="card-footer p-3">
-                        <p class="mb-0"><span class="text-success text-sm font-weight-bolder">{{$porcEsbocoRepetidos}}% </span>em relação as pregações
+                        <p class="mb-0"><span class="text-success text-sm font-weight-bolder">{{ $porcEsbocoRepetidos }}%
+                            </span>em relação as pregações
                         </p>
                     </div>
                 </div>
             </div>
         </div>
 
+        @if ($admin)
+            <div class="row mt-4">
+                <div class="col-xl-4 col-sm-6 mb-xl-0 my-4">
+                    <div class="card">
+                        <div class="card-header p-3 pt-2">
+                            <div
+                                class="icon icon-lg icon-shape bg-gradient-secondary shadow-secondary text-center border-radius-xl position-absolute">
+                                <i class="material-icons opacity-10">group</i>
+                            </div>
+                            <div class="text-end pt-1">
+                                <p class="text-sm mb-0 text-capitalize">Usuários</p>
+                                <h4 class="mb-0">{{ $contUsuarios }}</h4>
+                            </div>
+                        </div>
+                        <hr class="dark horizontal my-0">
+                        <div class="card-footer p-3">
+                            <p class="mb-0"><span class="text-success text-sm font-weight-bolder"></span>Quantidade total do
+                                sistema</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6 mb-xl-0 my-4">
+                    <div class="card">
+                        <div class="card-header p-3 pt-2">
+                            <div
+                                class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl position-absolute">
+                                <i class="fa-regular fa-file-lines"></i>
+                            </div>
+                            <div class="text-end pt-1">
+                                <p class="text-sm mb-0 text-capitalize">Usuários sem esboços</p>
+                                <h4 class="mb-0">{{ $contUsuariosSemEsbocos }}</h4>
+                            </div>
+                        </div>
+                        <hr class="dark horizontal my-0">
+                        <div class="card-footer p-3">
+                            <p class="mb-0">
+                                <span class="text-success text-sm font-weight-bolder">{{ $porcUsuariosSemEsbocos }}% </span>
+                                de todos os usuários
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6 mb-xl-0 my-4">
+                    <div class="card">
+                        <div class="card-header p-3 pt-2">
+                            <div
+                                class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl position-absolute">
+                                <i class="material-icons opacity-10">business_center</i>
+                            </div>
+                            <div class="text-end pt-1">
+                                <p class="text-sm mb-0 text-capitalize">Usuários sem Pregações</p>
+                                <h4 class="mb-0">{{ $contUsuariosSemPregacao }}</h4>
+                            </div>
+                        </div>
+                        <hr class="dark horizontal my-0">
+                        <div class="card-footer p-3">
+                            <p class="mb-0"><span
+                                    class="text-success text-sm font-weight-bolder">{{ $porcUsuariosSemPregacao }}% </span>de
+                                todos os usuários</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
         {{-- <div class="row">
 
             <div class="col-lg-6">
