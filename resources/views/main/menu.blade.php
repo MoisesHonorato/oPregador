@@ -1,3 +1,4 @@
+
 <aside
     class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
     id="sidenav-main">
@@ -50,6 +51,7 @@
                     <span class="nav-link-text ms-1">Perfil</span>
                 </a>
             </li>
+
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Úteis</h6>
             </li>
@@ -72,8 +74,36 @@
                     <span class="nav-link-text ms-1">Sugestão</span>
                 </a>
             </li>
-            <li class="nav-item">
 
+            {{-- ====================== MENU EXCLUSIVO PARA ADMIN =================== --}}
+            @if ($admin)
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Administrativo
+                    </h6>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white {{ session('currentPage') === 'donations' ? 'active bg-gradient-info' : '' }}"
+                        href="{{ asset('donations') }}">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Sugestões</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white {{ session('currentPage') === 'donations' ? 'active bg-gradient-info' : '' }}"
+                        href="{{ asset('donations') }}">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Usuários</span>
+                    </a>
+                </li>
+            @endif
+            {{-- ================ FIM DO MENU EXCLUSIVO PARA ADMIN =========================== --}}
+
+            <li class="nav-item">
                 <a class="nav-link text-white" href="{{ asset('logout') }}"
                     onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
@@ -81,14 +111,12 @@
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-right-from-bracket"></i>
                     </div>
-                    <span class="nav-link-text ms-1"> Sair</span>
+                    <span class="nav-link-text ms-1">Sair</span>
                 </a>
 
                 <form id="logout-form" action="{{ asset('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
             </li>
-
-
         </ul>
 </aside>

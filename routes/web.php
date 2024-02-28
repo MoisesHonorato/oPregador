@@ -9,16 +9,28 @@ use App\Http\Controllers\SuggestionController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-
-Route::get('/login', function(){
+Route::get('/login', function () {
     return view('auth/login');
-    });
+});
 
-Route::resource('/', DashboardController::class)->middleware('auth');
-Route::resource('donations', DonationController::class)->middleware('auth');
-Route::resource('esbocos', EsbocoController::class)->middleware('auth');
-Route::resource('profiles', ProfileController::class)->middleware('auth');
-Route::resource('sermons', SermonController::class)->middleware('auth');
-Route::resource('suggestions', SuggestionController::class)->middleware('auth');
+Route::resource('/', DashboardController::class);
 
-Auth::routes();
+// =============== ADMIN =========================
+Route::middleware('admin')->group(function () {
+
+});
+
+// =============== PREGADOR =========================
+Route::middleware('pregador')->group(function () {
+    
+});
+
+// =============== TODOS USERS =========================
+Route::middleware('auth')->group(function () {
+    Auth::routes();
+    Route::resource('donations', DonationController::class);
+    Route::resource('esbocos', EsbocoController::class);
+    Route::resource('sermons', SermonController::class);
+    Route::resource('suggestions', SuggestionController::class);
+    Route::resource('profiles', ProfileController::class);
+});

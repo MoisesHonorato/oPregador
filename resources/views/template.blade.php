@@ -45,6 +45,29 @@
 <body class="g-sidenav-show  bg-gray-200">
 
     {{-- ============================ Menu ===================== --}}
+
+    <?php
+    $user = auth()->user(); // Obter o usuário logado
+    $accessLevels = $user->accessLevels;
+
+    $admin = false;
+    $pregador = false;
+
+    // Iterar sobre os níveis de acesso
+    foreach ($accessLevels as $accessLevel) {
+        if ($accessLevel->name == 'admin') {
+            $admin = true;
+        }
+        if ($accessLevel->name == 'pregador') {
+            $pregador = true;
+        }
+        // Se ambos os papéis forem encontrados, não há necessidade de continuar o loop
+        if ($admin && $pregador) {
+            break;
+        }
+    }
+    ?>
+
     @include('main.menu')
 
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">

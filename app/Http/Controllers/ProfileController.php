@@ -14,7 +14,14 @@ class ProfileController extends Controller
         session(['currentPage' => 'profiles']);
 
         $user = Auth::user();
-        return view('profiles.index', compact('user'));
+        $accessLevels = $user->accessLevels;
+
+        // Iterando sobre os níveis de acesso e exibindo os IDs
+        foreach ($accessLevels as $accessLevel) {
+            $nivel =  $accessLevel->name;
+        }
+
+        return view('profiles.index', compact('user', 'nivel'));
     }
 
     public function create()

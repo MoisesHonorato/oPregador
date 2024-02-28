@@ -2,8 +2,10 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use App\Http\Middleware\CheckUser;
+use App\Http\Middleware\PregadorMiddleware;
 
 class Kernel extends HttpKernel
 {
@@ -25,7 +27,9 @@ class Kernel extends HttpKernel
     ];
 
     protected $routeMiddleware = [
-        'check.user' => CheckUser::class,
+        'check.user'    => CheckUser::class,
+        'admin'         => AdminMiddleware::class,
+        'pregador'      => PregadorMiddleware::class,
     ];
 
 

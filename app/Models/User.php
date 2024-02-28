@@ -43,4 +43,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Suggestion::class);
     }
+
+    public function accessLevels()
+    {
+        return $this->belongsToMany(AccessLevel::class, 'user_access_level');
+    }
+
+    public function hasAccess($accessLevel)
+    {
+        return $this->accessLevels->contains('name', $accessLevel);
+    }
 }

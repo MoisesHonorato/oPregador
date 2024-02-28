@@ -48,6 +48,11 @@
                                                 {{ $user->ddd . ' ' . $user->telefone }}
                                             </span>
                                         </span>
+                                        <span class="mb-2 text-xs">Nível de Acesso:
+                                            <span class="text-dark ms-sm-2 font-weight-bold">
+                                                {{ $nivel }}
+                                            </span>
+                                        </span>
                                     </div>
                                     <div class="ms-auto text-end">
                                         <a class="btn bg-gradient-dark mb-0" href="{{ route('profiles.edit', $user->id) }}">

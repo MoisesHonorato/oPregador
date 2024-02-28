@@ -1,29 +1,26 @@
- <footer class="footer py-4  ">
+ <footer class="footer py-4 mt-6 bg-gradient-dark border-0 border-radius-xl text-white">
      <div class="container-fluid">
-         <div class="row align-items-center justify-content-lg-between">
-             <div class="col-lg-6 mb-lg-0 mb-4">
-                 <div class="copyright text-center text-sm text-muted text-lg-start">
-                     ©
-                     <script>
-                         document.write(new Date().getFullYear())
-                     </script> - <strong> oPregador </strong> - Todos os direitos reservados v.1.0.0.
+         <div class="row ">
+             <div class="col-12 ">
+                 <div class="copyright text-center ">
+                     <small>
+                         ©
+                         2023-
+                         <script>
+                             document.write(new Date().getFullYear())
+                         </script> - Todos os direitos reservados a <strong>oPregador </strong> |
+                         Desenvolvido por
+                     </small>
+                     <small class="text-warning">
+                        <a href="https://api.whatsapp.com/send?phone=556993458585&text=Ol%C3%A1%20Mois%C3%A9s,%20quero%20falar%20sobre%20o%20sistema%20oPregador!" class="text-warning" target="_blank">
+                            Moisés Honorato
+
+                        </a>
+                     </small>
+                     <small>
+                        - v.1.0.0
+                     </small>
                  </div>
-             </div>
-             <div class="col-lg-6">
-                 <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                     <li class="nav-item">
-                         <a href="{{ asset('esbocos') }}" class="nav-link text-muted">Esboços</a>
-                     </li>
-                     <li class="nav-item">
-                         <a href="{{ asset('sermons') }}" class="nav-link text-muted">Pregação</a>
-                     </li>
-                     <li class="nav-item">
-                         <a href="{{ asset('profiles') }}" class="nav-link text-muted">Perfil</a>
-                     </li>
-                     <li class="nav-item">
-                         <a href="{{ asset('donations') }}" class="nav-link pe-0 text-muted">Doações</a>
-                     </li>
-                 </ul>
              </div>
          </div>
      </div>
