@@ -53,7 +53,7 @@
             </li>
 
             <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Úteis</h6>
+                <h6 class="ps-4 ms-2 text-uppercase text-xs text-warning font-weight-bolder opacity-8">Úteis</h6>
             </li>
 
             <li class="nav-item">
@@ -78,7 +78,7 @@
             {{-- ====================== MENU EXCLUSIVO PARA ADMIN =================== --}}
             @if ($admin)
                 <li class="nav-item mt-3">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Administrativo
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-warning font-weight-bolder opacity-8">Administrativo
                     </h6>
                 </li>
 
