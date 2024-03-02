@@ -79,7 +79,11 @@ class DashboardController extends Controller
             $porcEsbocosNaoPregados = number_format(($contEsbocosNaoPregados / $esbocos) * 100, 2, ',', '.');
             $porcUsuariosSemEsbocos = number_format(($contUsuariosSemEsbocos / $contUsuarios) * 100, 2, ',', '.');
             $porcUsuariosSemPregacao = number_format(($contUsuariosSemPregacao / $contUsuarios) * 100, 2, ',', '.');
-            $porcEsbocoRepetidos        = number_format(($esbocoRepetidos / $contSermons) * 100, 2, ',', '.');
+            if ($contSermons != 0) {
+                $porcEsbocoRepetidos        = number_format(($esbocoRepetidos / $contSermons) * 100, 2, ',', '.');
+            } else {
+                $porcEsbocoRepetidos = 0;
+            };
 
         endif;
 
@@ -103,7 +107,11 @@ class DashboardController extends Controller
             $porcEsbocos        = number_format(($contEsbocos / $esbocos) * 100, 2, ',', '.');
             $porcSermons        = number_format(($contSermons / $sermons) * 100, 2, ',', '.');
             $porcEsbocosNaoPregados = number_format(($contEsbocosNaoPregados / $esbocos) * 100, 2, ',', '.');
-            $porcEsbocoRepetidos        = number_format(($esbocoRepetidos / $contSermons) * 100, 2, ',', '.');
+            if ($contSermons != 0) {
+                $porcEsbocoRepetidos        = number_format(($esbocoRepetidos / $contSermons) * 100, 2, ',', '.');
+            } else {
+                $porcEsbocoRepetidos = 0;
+            };
         endif;
 
         return view('dashboard/index', compact(
