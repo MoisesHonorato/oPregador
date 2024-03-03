@@ -20,10 +20,20 @@ class DashboardController extends Controller
         $admin = false;
         $pregador = false;
         $contUsuarios               = 0;
+        $esbocoRepetidos            = 0;
+        $contEsbocos                = 0;
+        $contSermons                = 0;
+        $contSuggestions            = 0;
+        $contEsbocosNaoPregados     = 0;
         $contUsuariosSemEsbocos     = 0;
         $contUsuariosSemPregacao    = 0;
         $porcUsuariosSemEsbocos     = 0;
         $porcUsuariosSemPregacao    = 0;
+        $porcEsbocos                = 0;
+        $porcSermons                = 0;
+        $porcEsbocosNaoPregados     = 0;
+        $porcEsbocoRepetidos        = 0;
+
 
         // Iterar sobre os níveis de acesso
         foreach ($accessLevels as $accessLevel) {

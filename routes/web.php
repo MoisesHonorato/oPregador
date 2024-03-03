@@ -30,4 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('profiles', ProfileController::class);
 });
 
-Auth::routes();
+// Auth::routes();
+
+// dd(__DIR__ . '/auth.php');
+require __DIR__ . '/auth.php';
