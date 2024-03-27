@@ -40,25 +40,26 @@ class EsbocoController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
-            'categoria_id' => 'required',
+            // 'categoria_id' => 'required',
             'titulo' => 'required',
             'capitulo' => 'required',
             'versiculo' => 'required',
             'texto' => 'required',
         ]);
 
-        $usuarioId = Auth::id(); // Obtém o ID do usuário autenticado
+        $usuarioId = Auth::id();
 
         $esboco = new Esboco();
         $esboco->usuario_id = $usuarioId;
-        $esboco->categoria_id = $request->input('categoria_id');
+        $esboco->categoria_id = 1;
+        // $esboco->categoria_id = $request->input('categoria_id');
         $esboco->livro_id = $request->input('livro_id');
         $esboco->titulo = $request->input('titulo');
         $esboco->capitulo = $request->input('capitulo');
         $esboco->versiculo = $request->input('versiculo');
         $esboco->texto = $request->input('texto');
-
         $esboco->save();
 
         return redirect()->route('esbocos.index')->with('success', 'Esboço criado com sucesso!');
