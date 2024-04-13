@@ -83,8 +83,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-white {{ session('currentPage') === 'donations' ? 'active bg-gradient-info' : '' }}"
-                        href="{{ asset('donations') }}">
+                    <a class="nav-link text-white {{ session('currentPage') === 'suggestions' ? 'active bg-gradient-info' : '' }}"
+                        href="{{ asset('suggestions/indexAdmin') }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-hand-holding-dollar"></i>
                         </div>

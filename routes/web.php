@@ -11,12 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 // =============== ADMIN =========================
 Route::middleware('admin')->group(function () {
-
+    Route::get('suggestions/indexAdmin', [SuggestionController::class, 'indexAdmin'])->name('suggestions.indexAdmin');
 });
 
 // =============== PREGADOR =========================
 Route::middleware('pregador')->group(function () {
-
 });
 
 // =============== TODOS USERS =========================

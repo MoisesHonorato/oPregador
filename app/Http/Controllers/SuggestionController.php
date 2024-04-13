@@ -31,6 +31,28 @@ class SuggestionController extends Controller
         return view('suggestions.index', compact('suggestions', 'search'));
     }
 
+    public function indexAdmin(Request $request)
+    {
+        session(['currentPage' => 'suggestions']);
+
+        $user = Auth::user();
+        $search = request('search');
+
+        $query = Suggestion::query();
+
+        if ($request->has('search')) {
+            $searchTerm = '%' . $request->input('search') . '%';
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('title', 'like', $searchTerm)
+                    ->orWhere('subject', 'like', $searchTerm);
+            });
+        }
+
+        $suggestions = $query->paginate(5);
+
+        return view('suggestions.indexAdmin', compact('suggestions', 'search'));
+    }
+
     public function create()
     {
         return view('suggestions.create');
