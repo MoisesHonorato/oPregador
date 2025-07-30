@@ -38,7 +38,7 @@ class SuggestionController extends Controller
         $user = Auth::user();
         $search = request('search');
 
-        $query = Suggestion::query();
+        $query = Suggestion::query()->with('user');
 
         if ($request->has('search')) {
             $searchTerm = '%' . $request->input('search') . '%';

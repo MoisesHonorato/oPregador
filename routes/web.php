@@ -31,5 +31,4 @@ Route::middleware('auth')->group(function () {
 
 // Auth::routes();
 
-// dd(__DIR__ . '/auth.php');
 require __DIR__ . '/auth.php';

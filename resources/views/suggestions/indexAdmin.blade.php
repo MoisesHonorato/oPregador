@@ -72,40 +72,37 @@
                             <ul class="list-group mx-3 z-index-2">
                                 @foreach ($suggestions as $suggestion)
                                     <li class="list-group-item border-0 d-flex px-3 mb-2 bg-gray-100 border-radius-lg">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                {{-- <div class="d-flex flex-column"> --}}
-                                                <p>
-                                                    <strong class="">Assunto:</strong>
-                                                    <em class="">{{ $suggestion->title }}</em>
-                                                    <small class="text-xs">-
-                                                        Criado em {{ date('d/m/Y', strtotime($suggestion->created_at)) }}
-                                                    </small>
-                                                </p>
-                                                <span class="mb-2 text-xs">Sugestão: <span
-                                                        class="text-dark font-weight-bold ms-sm-2">{{ $suggestion->subject }}</span>
+                                        <div class="col-10 pr-4">
+                                            <p>
+                                                <strong class="">Assunto:</strong>
+                                                <em class="">{{ $suggestion->title }}</em>
+                                                <small class="text-xs">-
+                                                    Criado em {{ date('d/m/Y', strtotime($suggestion->created_at)) }}
+                                                </small>
+                                            </p>
+                                            <p>
+                                                <span class="mb-2 text-xs">Usuário:
+                                                    <span class="text-dark font-weight-bold ms-sm-2">Fulano de tal</span>
+                                                    | fulano | (76) 9898-0987
                                                 </span>
-                                                {{-- </div> --}}
-                                            </div>
-                                            <div class="col-2">
-                                                {{-- <div class="ms-auto text-end"> --}}
-
-                                                <a class="btn bg-gradient-dark"
-                                                    href="{{ route('suggestions.edit', $suggestion->id) }}">
-                                                    <i class="fa-regular fa-pen-to-square"></i> Editar
-                                                </a>
-
-                                                <a class="btn btn-link text-primary text-gradient px-3 mb-0"
-                                                    href="{{ route('suggestions.show', $suggestion->id) }}">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i> Ver
-                                                </a>
-
-                                                {{-- </div> --}}
-                                            </div>
+                                            </p>
+                                            <span class="mb-2 text-xs">Sugestão:
+                                                <span
+                                                    class="text-dark font-weight-bold ms-sm-2">{{ $suggestion->subject }}</span>
+                                            </span>
                                         </div>
 
+                                        <div class="col-2">
+                                            <a class="btn bg-gradient-dark"
+                                                href="{{ route('suggestions.edit', $suggestion->id) }}">
+                                                <i class="fa-regular fa-pen-to-square"></i> Editar
+                                            </a>
 
-
+                                            <a class="btn btn-link text-primary text-gradient px-3 mb-0"
+                                                href="{{ route('suggestions.show', $suggestion->id) }}">
+                                                <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                                            </a>
+                                        </div>
                                     </li>
                                 @endforeach
                             </ul>
